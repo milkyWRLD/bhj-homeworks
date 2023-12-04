@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var tabNavigations = document.querySelectorAll('.tab__navigation');
+    let tabNavigations = document.querySelectorAll('.tab__navigation');
 
     tabNavigations.forEach(function (tabNavigation) {
-        var tabs = tabNavigation.querySelectorAll('.tab');
+        let tabs = tabNavigation.querySelectorAll('.tab');
 
         tabs.forEach(function (tab, tabIndex) {
             tab.addEventListener('click', function () {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 tab.classList.add('tab_active');
 
-                var tabContents = tabNavigation.nextElementSibling.querySelectorAll('.tab__content');
+                let tabContents = tabNavigation.nextElementSibling.querySelectorAll('.tab__content');
 
                 tabContents.forEach(function (content) {
                     content.classList.remove('tab__content_active');
