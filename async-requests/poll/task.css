@@ -1,0 +1,24 @@
+body {
+  font-family: Arial;
+}
+
+.card {
+  width: 625px;
+}
+
+.poll__title {
+  margin-bottom: 20px;
+}
+
+.poll__answer {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.poll__result {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
