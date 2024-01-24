@@ -1,7 +1,7 @@
 class Game {
     constructor(container) {
         this.container = container;
-        this.wordElement = container.querySelector('.word'); 
+        this.wordElement = container.querySelector('.word');
         this.winsElement = container.querySelector('.status__wins');
         this.lossElement = container.querySelector('.status__loss');
         this.сountdown = container.querySelector('.status__timer');
@@ -22,6 +22,7 @@ class Game {
     registerEvents() {
         let updatePlayer = ((event) => {
             if (event.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase()) {
+                this.success();
             } else {
                 this.fail();
             }
@@ -30,11 +31,11 @@ class Game {
     }
 
     timer() { // работа таймера
-        let timerId = setInterval(() => {
+        this.timerId = setInterval(() => {
             if (this.сountdown.textContent > 0){
                 --this.сountdown.textContent;
             } else {
-                clearInterval(timerId);
+                clearInterval(this.timerId);
                 return this.reset();
             }
         }, 1000);
@@ -63,9 +64,11 @@ class Game {
     }
 
     setNewWord() {
+        clearInterval(this.timerId);
         const word = this.getWord();
 
         this.renderWord(word);
+        this.timer();
     }
 
     getWord() {
